@@ -6,7 +6,7 @@ import pack from '../package.json';
 const exec = childProcess.exec;
 const file = path.join(__dirname, '../package.json');
 
-const query = (type) => {
+const query = (type, param) => {
   let idx;
   if (type === 'minor') {
     idx = 1;
@@ -36,12 +36,10 @@ const query = (type) => {
   pkg = JSON.stringify(pkg, null, 2);
   fs.writeFileSync(file, pkg);
   exec([
-    `cd ${path.join(__dirname, '../')}`,
     'git add .',
-    `git commit -m 'v${version} - Static Files Generator'`,
+    `git commit -m 'v${version} - ${param.m}'`,
     'git push'
   ].join('\n'), (err, stdout, stderr) => {
-    console.log(1);
     if (err) {
       console.log(err);
     }
