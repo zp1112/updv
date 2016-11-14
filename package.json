@@ -1,6 +1,6 @@
 {
   "name": "updv",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "自动更新版本号，记录最后更新时间",
   "main": "dist/index.js",
   "scripts": {
