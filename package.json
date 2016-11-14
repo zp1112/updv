@@ -1,7 +1,7 @@
 {
   "name": "12306",
-  "version": "1.0.21",
-  "description": "11/14/2016, 11:22:21 AM",
+  "version": "1.0.23",
+  "description": "11/14/2016, 11:24:17 AM",
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
