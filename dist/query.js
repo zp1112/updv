@@ -23,9 +23,10 @@ var _package2 = _interopRequireDefault(_package);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var exec = _child_process2.default.exec;
-var file = _path2.default.join(__dirname, '../package.json');
 
 var query = function query(type, param) {
+  var file = _path2.default.join(param.rawArgs[1], '/package.json');
+  console.log(file);
   var idx = void 0;
   if (type === 'minor') {
     idx = 1;

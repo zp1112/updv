@@ -1,12 +1,14 @@
 import path from 'path';
 import fs from 'fs';
 import childProcess from 'child_process';
-import pack from '../package.json';
+import shell from 'shelljs';
+
+const pack = require(path.join(shell.pwd().stdout, '/package.json'));
 
 const exec = childProcess.exec;
-const file = path.join(__dirname, '../package.json');
 
 const query = (type, param) => {
+  const file = path.join(shell.pwd().stdout, '/package.json');
   let idx;
   if (type === 'minor') {
     idx = 1;

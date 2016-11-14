@@ -22,5 +22,3 @@ var pack = require(file);
 _commander2.default.version(pack.version).option('-m, --m [command]', '提交信息').parse(process.argv);
 
 _commander2.default.arguments('<type>').action(_query2.default).parse(process.argv);
-
-_commander2.default.parse(process.argv);

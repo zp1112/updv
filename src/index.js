@@ -17,5 +17,3 @@ program
    .arguments('<type>')
    .action(queryFunc)
    .parse(process.argv);
-
-program.parse(process.argv);
