@@ -1,7 +1,7 @@
 {
   "name": "updv",
   "version": "1.0.6",
-  "description": "11/14/2016, 1:48:11 PM",
+  "description": "自动更新版本号，记录最后更新时间",
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
