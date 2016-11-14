@@ -16,17 +16,18 @@ var _child_process = require('child_process');
 
 var _child_process2 = _interopRequireDefault(_child_process);
 
-var _package = require('../package.json');
+var _shelljs = require('shelljs');
 
-var _package2 = _interopRequireDefault(_package);
+var _shelljs2 = _interopRequireDefault(_shelljs);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var pack = require(_path2.default.join(_shelljs2.default.pwd().stdout, '/package.json'));
 
 var exec = _child_process2.default.exec;
 
 var query = function query(type, param) {
-  var file = _path2.default.join(param.rawArgs[1], '/package.json');
-  console.log(file);
+  var file = _path2.default.join(_shelljs2.default.pwd().stdout, '/package.json');
   var idx = void 0;
   if (type === 'minor') {
     idx = 1;
@@ -38,7 +39,7 @@ var query = function query(type, param) {
     console.log('please enter version type in patch,major or minor');
     return;
   }
-  var pkg = _package2.default;
+  var pkg = pack;
   var version = pkg.version.split('.').map(Number).map(function (d, i) {
     if (i > idx) {
       return 0;
