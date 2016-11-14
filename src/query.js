@@ -1,11 +1,12 @@
 const path = require('path');
 const fs = require('fs');
-const exec = require('child_process').exec;
-const file = path.join(__dirname, '../package.json');
-let pack = require(file);
 
-const query = (type, params) => {
-  console.log(type);
+let pack = require(path.join(__dirname, '../package.json'));
+const exec = require('child_process').exec;
+
+const file = path.join(__dirname, '../package.json');
+
+const query = (type) => {
   let idx;
   if (type === 'minor') {
     idx = 1;

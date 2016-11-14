@@ -4,15 +4,6 @@ import program from 'commander';
 import path from 'path';
 import queryFunc from './query';
 
-const commandParser = (func) => {
-  console.log(program);
-  return (type) => {
-    func(type, {
-      command: program.m
-    });
-  };
-};
-
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
 const file = path.join(__dirname, '../package.json');
