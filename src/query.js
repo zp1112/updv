@@ -40,6 +40,7 @@ const query = (type) => {
     `git commit -m 'v${version} - Static Files Generator'`,
     'git push'
   ].join('\n'), (err, stdout, stderr) => {
+    console.log(1);
     if (err) {
       console.log(err);
     }
