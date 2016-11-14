@@ -12,7 +12,7 @@
   "author": "",
   "license": "ISC",
   "bin": {
-    "update": "./dist/index.js"
+    "updv": "./dist/index.js"
   },
   "repository": {
     "type": "git",
