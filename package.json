@@ -1,5 +1,5 @@
 {
-  "name": "12306",
+  "name": "updv",
   "version": "1.0.25",
   "description": "11/14/2016, 11:24:40 AM",
   "main": "dist/index.js",
@@ -14,6 +14,18 @@
   "bin": {
     "update": "./dist/index.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zp1112/updv.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zp1112/updv/issues"
+  },
+  "keywords": [
+    "tool",
+    "git",
+    "package"
+  ],
   "devDependencies": {
     "babel-eslint": "^6.1.2",
     "babel-plugin-transform-es2015-function-name": "^6.9.0",

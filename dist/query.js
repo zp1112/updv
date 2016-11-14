@@ -4,15 +4,28 @@ var _stringify = require('babel-runtime/core-js/json/stringify');
 
 var _stringify2 = _interopRequireDefault(_stringify);
 
+var _path = require('path');
+
+var _path2 = _interopRequireDefault(_path);
+
+var _fs = require('fs');
+
+var _fs2 = _interopRequireDefault(_fs);
+
+var _child_process = require('child_process');
+
+var _child_process2 = _interopRequireDefault(_child_process);
+
+var _package = require('../package.json');
+
+var _package2 = _interopRequireDefault(_package);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var path = require('path');
-var fs = require('fs');
-var exec = require('child_process').exec;
-var file = path.join(__dirname, '../package.json');
-var pack = require(file);
+var exec = _child_process2.default.exec;
+var file = _path2.default.join(__dirname, '../package.json');
 
-var query = function query(type, params) {
+var query = function query(type, param) {
   var idx = void 0;
   if (type === 'minor') {
     idx = 1;
@@ -24,7 +37,8 @@ var query = function query(type, params) {
     console.log('please enter version type in patch,major or minor');
     return;
   }
-  var version = pack.version.split('.').map(Number).map(function (d, i) {
+  var pkg = _package2.default;
+  var version = pkg.version.split('.').map(Number).map(function (d, i) {
     if (i > idx) {
       return 0;
     }
@@ -34,12 +48,12 @@ var query = function query(type, params) {
     return d + 1;
   }).join('.');
 
-  pack.version = version;
-  pack.description = new Date().toLocaleString();
+  pkg.version = version;
+  pkg.description = new Date().toLocaleString();
 
-  pack = (0, _stringify2.default)(pack, null, 2);
-  fs.writeFileSync(file, pack);
-  exec(['cd ' + path.join(__dirname, '../'), 'git add .', 'git commit -m \'v' + version + ' - Static Files Generator\'', 'git push'].join('\n'), function (err, stdout, stderr) {
+  pkg = (0, _stringify2.default)(pkg, null, 2);
+  _fs2.default.writeFileSync(file, pkg);
+  exec(['git add .', 'git commit -m \'v' + version + ' - ' + param.m + '\'', 'git push'].join('\n'), function (err, stdout, stderr) {
     if (err) {
       console.log(err);
     }

@@ -37,7 +37,7 @@ const query = (type, param) => {
   fs.writeFileSync(file, pkg);
   exec([
     'git add .',
-    `git commit -m 'v${version} - ${param.m}'`,
+    `git commit -m 'v${version} - ${param.m || 'normal push'}'`,
     'git push'
   ].join('\n'), (err, stdout, stderr) => {
     if (err) {
