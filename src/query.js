@@ -1,9 +1,9 @@
-const path = require('path');
-const fs = require('fs');
+import path from 'path';
+import fs from 'fs';
+import childProcess from 'child_process';
+import pack from '../package.json';
 
-let pack = require(path.join(__dirname, '../package.json'));
-const exec = require('child_process').exec;
-
+const exec = childProcess.exec;
 const file = path.join(__dirname, '../package.json');
 
 const query = (type) => {
@@ -18,7 +18,8 @@ const query = (type) => {
     console.log('please enter version type in patch,major or minor');
     return;
   }
-  const version = pack.version.split('.').map(Number).map((d, i) => {
+  let pkg = pack;
+  const version = pkg.version.split('.').map(Number).map((d, i) => {
     if (i > idx) {
       return 0;
     }
@@ -29,11 +30,11 @@ const query = (type) => {
   })
     .join('.');
 
-  pack.version = version;
-  pack.description = (new Date()).toLocaleString();
+  pkg.version = version;
+  pkg.description = (new Date()).toLocaleString();
 
-  pack = JSON.stringify(pack, null, 2);
-  fs.writeFileSync(file, pack);
+  pkg = JSON.stringify(pkg, null, 2);
+  fs.writeFileSync(file, pkg);
   exec([
     `cd ${path.join(__dirname, '../')}`,
     'git add .',
