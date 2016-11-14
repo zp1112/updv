@@ -1,15 +1,18 @@
 {
   "name": "12306",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "1.0.1",
+  "description": "11/14/2016, 10:58:07 AM",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "./node_modules/.bin/babel src --out-dir dist",
+    "prepublish": "npm run compile",
+    "start": "npm run compile"
   },
   "author": "",
   "license": "ISC",
   "bin": {
-    "12306": "./bin/index.js"
+    "update": "./dist/index.js"
   },
   "devDependencies": {
     "babel-eslint": "^6.1.2",
