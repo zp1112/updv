@@ -1,12 +1,10 @@
 #!/usr/bin/env node
 import program from 'commander';
-import path from 'path';
 import queryFunc from './query';
+import pack from '../package.json';
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 console.log(__dirname);
-const file = path.join(__dirname, '../package.json');
-const pack = require(file);
 program
  .version(pack.version)
  .option('-m, --m [command]', '提交信息')
