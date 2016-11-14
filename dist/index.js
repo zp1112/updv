@@ -16,7 +16,7 @@ var _query2 = _interopRequireDefault(_query);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
-
+console.log(__dirname);
 var file = _path2.default.join(__dirname, '../package.json');
 var pack = require(file);
 _commander2.default.version(pack.version).option('-m, --m [command]', '提交信息').parse(process.argv);
