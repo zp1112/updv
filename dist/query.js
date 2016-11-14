@@ -53,7 +53,7 @@ var query = function query(type, param) {
 
   pkg = (0, _stringify2.default)(pkg, null, 2);
   _fs2.default.writeFileSync(file, pkg);
-  exec(['git add .', 'git commit -m \'v' + version + ' - ' + param.m + '\'', 'git push'].join('\n'), function (err, stdout, stderr) {
+  exec(['git add .', 'git commit -m \'v' + version + ' - ' + (param.m || 'normal push') + '\'', 'git push'].join('\n'), function (err, stdout, stderr) {
     if (err) {
       console.log(err);
     }
